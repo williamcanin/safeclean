@@ -1,11 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Information:
 #
 # ******************************************************************************
 # Type: Shell Script
 # Linux Compatibility: Arch Linux
-# Dependencies: secure-delete, shred
 # Description: Script that cleans the trash safely without leaving a trace.
 # Script Name: safeclean
 
