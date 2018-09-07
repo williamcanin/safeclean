@@ -42,7 +42,7 @@ fi
 _usage() {
   cat <<-EOF
 
-Usage: $0 [command] [options]
+Usage: safeclean [command] [options]
 
   Command:
 
