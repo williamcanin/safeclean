@@ -55,7 +55,6 @@ Usage: $0 [command] [options]
 EOF
 }
 
-
 # Start safeclean.
 _safeclean(){
     printf "Cleaning the trash can safely ...\n"
