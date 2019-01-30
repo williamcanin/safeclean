@@ -1,0 +1,9 @@
+# Folders
+/**/*/__pycache__
+/**/*/env
+/**/*/venv
+temp
+
+# Files
+/**/*.pyc
+/**/*.bak

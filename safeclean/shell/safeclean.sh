@@ -4,7 +4,7 @@
 #
 # ******************************************************************************
 # Type: Shell Script
-# Linux Compatibility: Arch Linux
+# Linux Compatibility: Linux distros
 # Description: Script that cleans the trash safely without leaving a trace.
 # Script Name: safeclean
 
@@ -21,19 +21,24 @@ export PATH
 
 # Variables.
 TRASH_DIR="$HOME/.local/share/Trash/files/"
-DEP=("wipe")
+# DEP=("wipe")
 
-# Verify distribution Linux.
-if [[ -f "/etc/os-release" ]]; then
-    distro=$(cat /etc/os-release | grep ^NAME | cut -d"=" -f2 | cut -d"\"" -f2)
-    if [[ "${distro}" != "Arch Linux" ]]; then
-      printf "This distribution Linux is not compatible. \n"
-      exit 1
-    fi
-fi
+# # DEPRECATED - Verify distribution Linux. [Archlinux]
+# if [[ -f "/etc/os-release" ]]; then
+#     distro=$(cat /etc/os-release | grep ^NAME | cut -d"=" -f2 | cut -d"\"" -f2)
+#     if [[ "${distro}" != "Arch Linux" ]]; then
+#       printf "This distribution Linux is not compatible. \n"
+#       exit 1
+#     fi
+# fi
 
-# Verify dependencies.
-if [[ ! -n $(pacman -Qq ${DEP[@]}) ]]; then
+# DEPRECATED - Verify dependencies. [Archlinux]
+# if [[ ! -n $(pacman -Qq ${DEP[@]}) ]]; then
+#     printf "This script depends on some packages installed. See the ones that are missing and install. Exit."
+#     exit 1
+# fi
+
+if [[ ! -f "/usr/bin/wipe" ]]; then
     printf "This script depends on some packages installed. See the ones that are missing and install. Exit."
     exit 1
 fi
@@ -59,7 +64,7 @@ EOF
 _safeclean(){
     printf "Cleaning the trash can safely ...\n"
 
-    ### The command line below, depends on shred, which usually comes installed 
+    ### The command line below, depends on shred, which usually comes installed
     ### on most Linux distributions.
     ### NOTE: This feature does not delete the folders, only the files contained in them.
     find ${TRASH_DIR} -depth -type f -exec shred -v -n 4 -z -u {} \;
@@ -84,7 +89,7 @@ case $1 in
             case $2 in
                 -c|--close) _safeclean; kill -9 $PPID ;;
                 *) printf "\nInvalid option! Nothing was accomplished.\n" ;;
-            esac            
+            esac
         fi
     ;;
     -h|--help) _usage ;;
