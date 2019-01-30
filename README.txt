@@ -2,7 +2,7 @@
 
 [ ABOUT ]
 
-  Safeclean is a simple script for Arch Linux with the function of 
+  Safeclean is a simple script for Linux with the function of 
     removing the trash in a safe way, with no chance of recovering files.
 
 [ VERSION ]
