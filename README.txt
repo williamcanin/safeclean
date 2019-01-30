@@ -45,7 +45,7 @@
   Tests:
 
   The file to run tests can be found in the "tests" folder. The file
-  "runtests.sh" will run the "Recover Grub" tests (script/recover_grub.py).
+  "runtests.sh" will run the "SafeClean" tests (safeclean/safeclean.py).
   
   The Python module used for testing is the **unittest**.
 
